@@ -7,6 +7,7 @@ var cors = require("cors");
 // routes
 const userRouter = require("./routes/user"); //auth
 const books = require("./routes/api/books");
+const parts = require("./routes/api/parts"); //parts
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.get("/users", (req, res) => res.send("Hello user!"));
 
 // use Routes
 app.use("/api/books", books);
+app.use("/api/parts", parts); //parts
 app.use("/users", userRouter);
 
 const port = process.env.PORT || 8082;
