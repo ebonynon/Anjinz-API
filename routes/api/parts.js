@@ -34,10 +34,10 @@ router.get("/", (req, res) => {
       .then((parts) => res.json(parts))
       .catch((err) => res.status(404).json({ nopartsfound: "No parts found" }));
   }
-  part
-    .find()
-    .then((parts) => res.json(parts))
-    .catch((err) => res.status(404).json({ nopartsfound: "No parts found" }));
+  // part
+  //   .find()
+  //   .then((parts) => res.json(parts))
+  //   .catch((err) => res.status(404).json({ nopartsfound: "No parts found" }));
 });
 
 // @route GET api/parts/:id

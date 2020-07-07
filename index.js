@@ -11,6 +11,7 @@ const parts = require("./routes/api/parts"); //parts
 
 const app = express();
 
+app.disable("etag");
 app.use(express.json()); //xx
 app.use(userRouter); //auth
 
