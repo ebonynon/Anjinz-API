@@ -17,6 +17,10 @@ const PartSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  part_name: {
+    type: String,
+    required: true,
+  },
   production_period: {
     type: String,
     required: true,
