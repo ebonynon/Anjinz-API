@@ -6,7 +6,7 @@ var cors = require("cors");
 
 // routes
 const userRouter = require("./routes/user"); //auth
-const books = require("./routes/api/books");
+//const books = require("./routes/api/books");
 const parts = require("./routes/api/parts"); //parts
 
 const app = express();
@@ -24,11 +24,11 @@ app.use(cors({ origin: true, credentials: true }));
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-app.get("/", (req, res) => res.send("Hello world!"));
-app.get("/users", (req, res) => res.send("Hello user!"));
+app.get("/", (req, res) => res.send("Welcome to Anginz! \n github.com/ebonynon"));
+app.get("/users", (req, res) => res.send("He.. user! \n github.com/ebonynon"));
 
 // use Routes
-app.use("/api/books", books);
+//app.use("/api/books", books);
 app.use("/api/parts", parts); //parts
 app.use("/users", userRouter);
 
