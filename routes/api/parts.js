@@ -53,7 +53,7 @@ router.get("/:id", (req, res) => {
 // @route GET api/parts
 // @description add/save part
 // @access Public
-router.post("/", (req, res) => {
+router.post("/", auth, (req, res) => {
   part
     .create(req.body)
     .then((part) => res.json({ msg: "part added successfully" }))
