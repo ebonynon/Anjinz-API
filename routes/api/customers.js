@@ -62,7 +62,8 @@ router.post("/", (req, res) => {
 // @route GET api/customers/:id
 // @description Update customer
 // @access Public
-router.put("/:id", auth, (req, res) => {
+//router.put("/:id", auth, (req, res) => {
+router.put("/:id", (req, res) => {
   Customer.findByIdAndUpdate(req.params.id, req.body)
     .then((customer) => res.json({ msg: "Updated successfully" }))
     .catch((err) =>
