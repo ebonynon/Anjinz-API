@@ -21,13 +21,31 @@ router.get("/", (req, res) => {
     );
 });
 
+// @route GET api/customers/nic
+// @description Get all parts
+// @access Public
+router.get("/nic/", (req, res) => {
+  console.log(req.query);
+
+  var nic_number = req.query.nic_number;
+
+  if (nic_number) {
+    part
+      .find({ part_number: part_number })
+      .then((parts) => res.json(parts))
+      .catch((err) => res.status(404).json({ nopartsfound: "No parts found" }));
+  }
+});
+
 // @route GET api/customers/:id
 // @description Get single customer by id
 // @access Public
 router.get("/:id", (req, res) => {
   Customer.findById(req.params.id)
     .then((customer) => res.json(customer))
-    .catch((err) => res.status(404).json({ nocustomerfound: "No customer found" }));
+    .catch((err) =>
+      res.status(404).json({ nocustomerfound: "No customer found" })
+    );
 });
 
 // @route GET api/customers
@@ -36,7 +54,9 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   Customer.create(req.body)
     .then((customer) => res.json({ msg: "customer added successfully" }))
-    .catch((err) => res.status(400).json({ error: "Unable to add this customer" }));
+    .catch((err) =>
+      res.status(400).json({ error: "Unable to add this customer" })
+    );
 });
 
 // @route GET api/customers/:id
@@ -56,7 +76,9 @@ router.put("/:id", auth, (req, res) => {
 //router.delete("/:id", auth, (req, res) => {
 router.delete("/:id", (req, res) => {
   Customer.findByIdAndRemove(req.params.id, req.body)
-    .then((customer) => res.json({ mgs: "customer entry deleted successfully" }))
+    .then((customer) =>
+      res.json({ mgs: "customer entry deleted successfully" })
+    )
     .catch((err) => res.status(404).json({ error: "No such a customer" }));
 });
 
